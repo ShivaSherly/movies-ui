@@ -2,58 +2,15 @@
 <html>
 
 <head>
-    <title>Sample Page</title>
-    <style>
-        /* Style for header */
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Style for side navigation bar */
-        .sidenav {
-            background-color: #f1f1f1;
-            padding: 15px;
-            width: 200px;
-        }
-
-        /* Style for search box and button */
-        .search-container {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .search-box {
-            padding: 10px;
-            width: 200px;
-        }
-
-        .search-button {
-            padding: 10px;
-        }
-    </style>
-
-    <style>
-        .card {
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .card img {
-            max-width: 100%;
-        }
-    </style>
-
+    <title>My Movies App</title>
+    <link rel="stylesheet" href="./../css/home.css">
 </head>
 
 <body>
     <!-- calling external Javascript function into html started -->
     <script src="../js/searchmovie.js"></script>
-    <script src="../js/createCards.js"></script>
+    <script src="../js/createDynamicCards.js"></script>
+    <script src="../js/popup.js"></script>
 
     <script>
         async function searchMovieLocalFunction() {
@@ -83,23 +40,6 @@
 
 
 
-    <style>
-        .container {
-            display: flex;
-        }
-
-        .left-div {
-            width: 20%;
-            background-color: rgb(255, 255, 255);
-            /* Just for illustration */
-        }
-
-        .right-div {
-            width: 80%;
-            background-color: rgb(255, 255, 255);
-            /* Just for illustration */
-        }
-    </style>
     <div class="container">
         <div class="left-div">
             <div class="sidenav" id="sidenav">
@@ -132,14 +72,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
 
 </body>
 
