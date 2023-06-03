@@ -53,44 +53,21 @@
 <body>
     <!-- calling external Javascript function into html started -->
     <script src="../js/searchmovie.js"></script>
+    <script src="../js/createCards.js"></script>
+
     <script>
         async function searchMovieLocalFunction() {
             let movieNametoSearch = document.getElementById('textSearchMovie').value;
             let searchResult = 'Searching...';
             searchResult = await searchMovie(movieNametoSearch);
-            document.getElementById("searchDataParagraph").innerHTML = JSON.stringify(searchResult.results);
             createCards(searchResult.results);
         }
 
-        // Create cards
-        function createCards(data) {
-            const container = document.getElementById('card-container');
-
-            data.forEach(item => {
-                console.log("Item",item);
-                // Create card element
-                const card = document.createElement('div');
-                card.classList.add('card');
-
-                // Create image element
-                const image = document.createElement('img');
-                image.src = item.imageSrc; // Assuming 'imageSrc' is the key in your JSON object that contains the image URL
-                image.alt = item.imageAlt; // Assuming 'imageAlt' is the key in your JSON object that contains the image alt text
-                card.appendChild(image);
-
-                // Create title element
-                const title = document.createElement('h2');
-                title.textContent = item.original_title; // Assuming 'title' is the key in your JSON object that contains the card title
-                card.appendChild(title);
-
-                // Create description element
-                const description = document.createElement('p');
-                description.textContent = item.release_date; // Assuming 'description' is the key in your JSON object that contains the card description
-                card.appendChild(description);
-
-                // Add card to the container
-                container.appendChild(card);
-            });
+        async function searchMoviebyCategory(movieCategory) {
+            let movieNametoSearch = movieCategory;
+            let searchResult = 'Searching...';
+            searchResult = await searchMovie(movieNametoSearch);
+            createCards(searchResult.results);
         }
     </script>
 
@@ -104,18 +81,65 @@
         </div>
     </header>
 
-    <div class="sidenav">
-        <h3>Sidebar</h3>
-        <ul>
-            <li>Menu Item 1</li>
-            <li>Menu Item 2</li>
-            <li>Menu Item 3</li>
-        </ul>
+
+
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .left-div {
+            width: 20%;
+            background-color: rgb(255, 255, 255);
+            /* Just for illustration */
+        }
+
+        .right-div {
+            width: 80%;
+            background-color: rgb(255, 255, 255);
+            /* Just for illustration */
+        }
+    </style>
+    <div class="container">
+        <div class="left-div">
+            <div class="sidenav" id="sidenav">
+                <h3>Genres</h3>
+                <ul>
+                    <li><a href='#' onclick="searchMoviebyCategory('Action')">Action</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Adventure')">Adventure</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Comedy')">Comedy</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Crime')">Crime</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Documentary')">Documentary</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Drama')">Drama</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Family')">Family</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Fantasy')">Fantasy</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('History')">History</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Horror')">Horror</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Music')">Music</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Mystery')">Mystery</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Romance')">Romance</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Silence')">Silence</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('Fiction')">Fiction</a></li>
+                    <li><a href='#' onclick="searchMoviebyCategory('TV Movie')">TV Movie</a></li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="right-div">
+            <div id="card-container">
+                <p>NOW Playing</p>
+                <!-- the data will be displayed here -->
+            </div>
+        </div>
     </div>
-    <div id="card-container"></div>
-    <div class="search-container">
-        <p id="searchDataParagraph">Search something ...</p>
-    </div>
+
+
+
+
+
+
+
+
 
 </body>
 
