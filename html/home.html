@@ -3,29 +3,32 @@
 
 <head>
     <title>My Movies App</title>
+     <!-- calling external CSS function into html -->
     <link rel="stylesheet" href="./../css/home.css">
 </head>
 
 <body>
-    <!-- calling external Javascript function into html started -->
+    <!-- calling external Javascript function into html -->
     <script src="../js/searchmovie.js"></script>
     <script src="../js/createDynamicCards.js"></script>
-    <script src="../js/popup.js"></script>
 
     <script>
-        async function searchMovieLocalFunction() {
+        // Search from Text Box
+        async function searchMoviefromTextbox() {
             let movieNametoSearch = document.getElementById('textSearchMovie').value;
             let searchResult = 'Searching...';
             searchResult = await searchMovie(movieNametoSearch);
             createCards(searchResult.results);
         }
-
+        // Search from Left Side Navigation
         async function searchMoviebyCategory(movieCategory) {
             let movieNametoSearch = movieCategory;
             let searchResult = 'Searching...';
             searchResult = await searchMovie(movieNametoSearch);
             createCards(searchResult.results);
         }
+
+        // Home Page Loading || Default
         searchMoviebyCategory("harry potter");
     </script>
 
@@ -35,7 +38,7 @@
         <h1 style="text-align: left;">My Movies App</h1>
         <div style="text-align: right;" class="search-container">
             <input type="text" id="textSearchMovie" class="search-box" placeholder="Search...">
-            <button type="button" class="search-button" onclick="searchMovieLocalFunction()">Search</button>
+            <button type="button" class="search-button" onclick="searchMoviefromTextbox()">Search</button>
         </div>
     </header>
 

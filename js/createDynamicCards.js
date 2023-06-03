@@ -5,7 +5,7 @@ function createCards(data) {
   container.replaceChildren();
   console.log("After ReplaceChildren");
   console.log("container", container);
-  let imagePath = '../images/movieLogo.png';
+  let imagePath = 'http://image.tmdb.org/t/p/w500/';
   data.forEach(item => {
     console.log("Item", item);
     // Create card element
@@ -16,7 +16,7 @@ function createCards(data) {
 
     // Create image element
     const image = document.createElement('img');
-    image.src = imagePath; // Assuming 'imageSrc' is the key in your JSON object that contains the image URL
+    image.src = imagePath+item.backdrop_path; // Assuming 'imageSrc' is the key in your JSON object that contains the image URL
     image.alt = "movie Icon"; // Assuming 'imageAlt' is the key in your JSON object that contains the image alt text
     card.appendChild(image);
 
@@ -25,12 +25,12 @@ function createCards(data) {
     title.textContent = item.original_title; // Assuming 'title' is the key in your JSON object that contains the card title
     card.appendChild(title);
 
-    // Create description element
+    // Create description element *** Movie Release Date ***
     const description = document.createElement('p');
     description.textContent = item.release_date; // Assuming 'description' is the key in your JSON object that contains the card description
     card.appendChild(description);
 
-    // Create title element
+    // Create title element 
     const viewMore = document.createElement('a');
     viewMore.textContent = "View More"; // Assuming 'title' is the key in your JSON object that contains the card title
     viewMore.href = '#';
