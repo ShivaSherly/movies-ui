@@ -27,8 +27,19 @@ function createCards(data) {
 
     // Create description element *** Movie Release Date ***
     const description = document.createElement('p');
-    description.textContent = item.release_date; // Assuming 'description' is the key in your JSON object that contains the card description
+    description.textContent = "Released Date :"+item.release_date; // Assuming 'description' is the key in your JSON object that contains the card description
     card.appendChild(description);
+
+      // Create description element *** Language ***
+      const language = document.createElement('p');
+      language.textContent = "Language :"+item.original_language; // Assuming 'original_language' is the key in your JSON object that contains the card description
+      card.appendChild(language);
+
+       // Create description element *** Language ***
+       const vote_average = document.createElement('p');
+       vote_average.textContent = "Rating :"+item.vote_average; // Assuming 'vote_average' is the key in your JSON object that contains the card description
+       vote_average.style.textAlign='left';
+       card.appendChild(vote_average);
 
     // Create title element 
     const viewMore = document.createElement('a');
