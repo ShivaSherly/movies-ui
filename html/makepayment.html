@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Payment Page</title>
+    <!-- calling external CSS function into html -->
+    <link rel="stylesheet" href="./../css/makepayment.css">
+</head>
+
+<body>
+<script>
+    function mybuttonclick(){
+        alert("Jummanji siva nagendra");
+    }
+</script>
+    <div class="container">
+        <div class="left-div">
+            <h2>Summary: </h2>
+            <h3>Black Adam: </h3>
+            <table>
+                <tr>
+                    <td>Class Ticket</td>
+                    <td>250$</td>
+                </tr>
+                <tr>
+                    <td>No of Tickets</td>
+                    <td><input type="text" style="width: fit-content;" /></td>
+                </tr>
+                <tr>
+                    <td>Conveniece Fee(1.75$)</td>
+                    <td>12.5$</td>
+
+                </tr>
+                <tr>
+                    <td>Sub Total</td>
+                    <td>508.6$</td>
+                </tr>
+            </table>
+        </div>
+        <div class="right-div">
+            <h2>Payment</h2>
+            <form action="payment_process.php" method="post">
+
+                <label for="name">First Name:</label>
+                <input type="text" id="fname" name="name" required>
+
+                <label for="name">Last Name:</label>
+                <input type="text" id="lname" name="name" required>
+
+                <label for="name">Email :</label>
+                <input type="text" id="email" name="name" required>
+
+                <label for="name">Name on Card:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" name="card-number" required>
+
+                <label for="expiry">Expiry Date:</label>
+                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="password" id="cvv" name="cvv" required>
+
+                <label for="net-banking">Net Banking:</label>
+                <select id="net-banking" name="net-banking">
+                    <option value="sbi">SBI</option>
+                    <option value="hdfc">HDFC</option>
+                    <option value="icici">ICICI</option>
+                    <option value="others">OTHERS</option>
+                </select>
+
+                <input type="submit" value="Make Payment">
+            </form>
+        </div>
+
+        <button id="mybutton" onclick="mybuttonclick()">mybutton</button>
+    </div>
+
+
+</body>
+
+</html>

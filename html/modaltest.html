@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<title>Payment Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="./../css/makepayment.css">
+
+<body>
+
+    <div class="w3-container">
+        <h2>Payment Modal</h2>
+        <p>Use w3-container classes to create different sections in the modal (e.g. header & footer).</p>
+        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open
+            Modal</button>
+
+        <div id="id01" class="w3-modal">
+            <div class="w3-modal-content">
+                <header class="w3-container w3-teal">
+                    <span onclick="document.getElementById('id01').style.display='none'"
+                        class="w3-button w3-display-topright">&times;</span>
+                    <!-- <h2>Modal Header</h2> -->
+                </header>
+                <div class="container">
+                    <div class="left-div">
+                        <h2>Summary: </h2>
+                        <h3>Black Adam: </h3>
+                        <table>
+                            <tr>
+                                <td>Class Ticket</td>
+                                <td>250$</td>
+                            </tr>
+                            <tr>
+                                <td>No of Tickets</td>
+                                <td><input type="text" style="width: fit-content;" /></td>
+                            </tr>
+                            <tr>
+                                <td>Conveniece Fee(1.75$)</td>
+                                <td>12.5$</td>
+
+                            </tr>
+                            <tr>
+                                <td>Sub Total</td>
+                                <td>508.6$</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="right-div">
+                        <h2>Payment</h2>
+                        <form action="payment_process.php" method="post">
+
+                            <label for="name">First Name:</label>
+                            <input type="text" id="fname" name="name" required>
+
+                            <label for="name">Last Name:</label>
+                            <input type="text" id="lname" name="name" required>
+
+                            <label for="name">Email :</label>
+                            <input type="text" id="email" name="name" required>
+
+                            <label for="name">Name on Card:</label>
+                            <input type="text" id="name" name="name" required>
+
+                            <label for="card-number">Card Number:</label>
+                            <input type="text" id="card-number" name="card-number" required>
+
+                            <label for="expiry">Expiry Date:</label>
+                            <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+
+                            <label for="cvv">CVV:</label>
+                            <input type="password" id="cvv" name="cvv" required>
+
+                            <label for="net-banking">Net Banking:</label>
+                            <select id="net-banking" name="net-banking">
+                                <option value="sbi">SBI</option>
+                                <option value="hdfc">HDFC</option>
+                                <option value="icici">ICICI</option>
+                                <option value="others">OTHERS</option>
+                            </select>
+
+                            <input type="submit" value="Make Payment">
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
