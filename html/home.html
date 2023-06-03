@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sample Page</title>
+    <style>
+        /* Style for header */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Style for side navigation bar */
+        .sidenav {
+            background-color: #f1f1f1;
+            padding: 15px;
+            width: 200px;
+        }
+
+        /* Style for search box and button */
+        .search-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .search-box {
+            padding: 10px;
+            width: 200px;
+        }
+
+        .search-button {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- calling external Javascript function into html started -->
+    <script src="../js/searchmovie.js"></script>
+    <script>
+        async function searchMovieLocalFunction() {
+            let movieNametoSearch = document.getElementById('textSearchMovie').value;
+            let searchResult = 'Searching...';
+            searchResult = await searchMovie(movieNametoSearch);
+            document.getElementById("searchDataParagraph").innerHTML = JSON.stringify(searchResult.results);
+
+        }
+
+        // Create paragraphs
+        function createParagraphs(data) {
+            const container = document.getElementById('paragraph-container');
+
+            data.forEach(item => {
+                // Create paragraph element
+                const paragraph = document.createElement('p');
+                paragraph.textContent = item.text; // Assuming 'text' is the key in your JSON object that contains the paragraph content
+
+                // Add paragraph to the container
+                container.appendChild(paragraph);
+            });
+        }
+    </script>
+
+
+    <!-- calling external Javascript function into html End -->
+    <header>
+        <h1 style="text-align: left;">My Movies App</h1>
+        <div style="text-align: right;" class="search-container">
+            <input type="text" id="textSearchMovie" class="search-box" placeholder="Search...">
+            <button type="button" class="search-button" onclick="searchMovieLocalFunction()">Search</button>
+        </div>
+    </header>
+
+    <div class="sidenav">
+        <h3>Sidebar</h3>
+        <ul>
+            <li>Menu Item 1</li>
+            <li>Menu Item 2</li>
+            <li>Menu Item 3</li>
+        </ul>
+    </div>
+    <div class="search-container">
+        <p id="searchDataParagraph">Search something ...</p>
+    </div>
+
+</body>
+
+</html>

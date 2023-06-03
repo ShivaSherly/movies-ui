@@ -1,0 +1,1 @@
+/* simple css with single line */
