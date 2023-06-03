@@ -1,14 +1,10 @@
 // Create cards
 function createCards(data) {
-  const container = document.getElementById('card-container');
-  console.log("Before ReplaceChildren");
+  const container = document.getElementById('card-container'); 
   container.replaceChildren();
-  console.log("After ReplaceChildren");
-  console.log("container", container);
   let imagePath = 'http://image.tmdb.org/t/p/w500/';
   data.forEach(item => {
-    console.log("Item", item);
-    // Create card element
+     // Create card element
     const card = document.createElement('div');
     card.classList.add('card');
     card.style.width = '25%';
