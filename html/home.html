@@ -15,7 +15,7 @@
     <script>
         // Search from Text Box
         async function searchMoviefromTextbox() {
-            let movieNametoSearch = document.getElementById('textSearchMovie').value;
+            let movieNametoSearch = document.getElementById('textSearchMovie').value || 'harry potter';
             let searchResult = 'Searching...';
             searchResult = await searchMovie(movieNametoSearch);
             createCards(searchResult.results);
