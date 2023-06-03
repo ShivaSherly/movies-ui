@@ -34,6 +34,20 @@
             padding: 10px;
         }
     </style>
+
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card img {
+            max-width: 100%;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -45,20 +59,37 @@
             let searchResult = 'Searching...';
             searchResult = await searchMovie(movieNametoSearch);
             document.getElementById("searchDataParagraph").innerHTML = JSON.stringify(searchResult.results);
-
+            createCards(searchResult.results);
         }
 
-        // Create paragraphs
-        function createParagraphs(data) {
-            const container = document.getElementById('paragraph-container');
+        // Create cards
+        function createCards(data) {
+            const container = document.getElementById('card-container');
 
             data.forEach(item => {
-                // Create paragraph element
-                const paragraph = document.createElement('p');
-                paragraph.textContent = item.text; // Assuming 'text' is the key in your JSON object that contains the paragraph content
+                console.log("Item",item);
+                // Create card element
+                const card = document.createElement('div');
+                card.classList.add('card');
 
-                // Add paragraph to the container
-                container.appendChild(paragraph);
+                // Create image element
+                const image = document.createElement('img');
+                image.src = item.imageSrc; // Assuming 'imageSrc' is the key in your JSON object that contains the image URL
+                image.alt = item.imageAlt; // Assuming 'imageAlt' is the key in your JSON object that contains the image alt text
+                card.appendChild(image);
+
+                // Create title element
+                const title = document.createElement('h2');
+                title.textContent = item.original_title; // Assuming 'title' is the key in your JSON object that contains the card title
+                card.appendChild(title);
+
+                // Create description element
+                const description = document.createElement('p');
+                description.textContent = item.release_date; // Assuming 'description' is the key in your JSON object that contains the card description
+                card.appendChild(description);
+
+                // Add card to the container
+                container.appendChild(card);
             });
         }
     </script>
@@ -81,6 +112,7 @@
             <li>Menu Item 3</li>
         </ul>
     </div>
+    <div id="card-container"></div>
     <div class="search-container">
         <p id="searchDataParagraph">Search something ...</p>
     </div>
