@@ -59,7 +59,10 @@
 
         function bookTicketModal(){
             document.getElementById('id01').style.display='none';
-            window.open('paymentDescriptionModal.html');
+            const urlParams = new URLSearchParams(window.location.search);
+            const original_title = urlParams.get('original_title');
+            document.getElementById("movieName").innerHTML = original_title;
+            window.open('paymentDescriptionModal.html?original_title='+original_title);
         }
     </script>
 </body>

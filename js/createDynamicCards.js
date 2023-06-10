@@ -39,7 +39,7 @@ function createCards(data) {
 
     // Create title element 
     const viewMore = document.createElement('a');
-    viewMore.textContent = "View More"; // Assuming 'title' is the key in your JSON object that contains the card title
+    viewMore.textContent = "Book Tickets Now"; // Assuming 'title' is the key in your JSON object that contains the card title
     viewMore.href = '../html/viewMovieDescription.html?backdrop_path='+item.backdrop_path+'&original_title='+item.original_title+'&release_date='+item.release_date+'&original_language='+item.original_language+'&vote_average='+item.vote_average+'&overview='+item.overview;
     card.appendChild(viewMore);
 

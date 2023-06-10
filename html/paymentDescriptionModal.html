@@ -20,7 +20,7 @@
                 <div class="container">
                     <div class="left-div">
                         <h2>Summary: </h2>
-                        <h3>Black Adam: </h3>
+                        <h3 id="movieTitle">Black Adam: </h3>
                         <table>
                             <tr>
                                 <td>Class Ticket</td>
@@ -88,6 +88,9 @@
     <script>
         function openPaymentModal(){
             document.getElementById('id01').style.display='block';
+            const urlParams = new URLSearchParams(window.location.search);
+            const original_title = urlParams.get('original_title');
+            document.getElementById('movieTitle').innerText=original_title;
         }
         openPaymentModal();
 
