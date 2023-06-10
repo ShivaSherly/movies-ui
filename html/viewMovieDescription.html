@@ -6,38 +6,71 @@
 <link rel="stylesheet" href="./../css/makepayment.css">
 
 <body>
+    <style>
+        .left-div {
+            width: 20%;
+            background-color: rgb(255, 255, 255);
+            /* Just for illustration */
+        }
+
+        .right-div {
+            width: 80%;
+            background-color: rgb(255, 255, 255);
+            /* Just for illustration */
+        }
+
+        .button {
+            background-color: #367bc5;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            width: 100%;
+        }
+    </style>
 
     <div class="w3-container">
         <div id="id01" class="w3-modal">
             <div class="w3-modal-content">
-                <header class="w3-container w3-teal">
-                    <span onclick="closeModal()"
-                        class="w3-button w3-display-topright">&times;</span>
+                <header class="w3-container w3-blue">
+                    <span onclick="closeModal()" class="w3-button w3-display-topright">&times;</span>
                 </header>
                 <div class="container">
-                    <img id="movieImageID" alt="image" width="200" height="200">
-                  <h2 id="movieName"> movie details with ticket rate</h2>
-                  
+                    <div class="left-div">
+                        <img id="movieImageID" alt="image" width="200" height="200">
+                    </div>
+
+                    <div class="right-div">
+                        <h2 id="movieName"> movie details with ticket rate</h2>
+                        <h4 id="movieRating"> Rating: </h4>
+                        <p id="movieDescription"></p>
+                        <p>Price: 250 Rs</p>
+                    </div>
+
+
+
                 </div>
-                <h4 id="movieRating"> Rating: </h4>
-                <p id="movieDescription"></p>
-                <p>Price: 250 Rs</p>
-                <button id="btnBookNow" onclick="bookTicketModal()"> Book Now</button>
+
+                <button id="btnBookNow" class="button" onclick="bookTicketModal()"> Book Now</button>
             </div>
         </div>
     </div>
     <script>
-        function displayModal(){
-            
-            document.getElementById('id01').style.display='block';
+        function displayModal() {
+
+            document.getElementById('id01').style.display = 'block';
             const urlParams = new URLSearchParams(window.location.search);
             const backdrop_path = urlParams.get('backdrop_path');
 
             let imagePath = 'http://image.tmdb.org/t/p/w500/';
             const imageinfo = document.getElementById('movieImageID');
-            imageinfo.src = imagePath +backdrop_path; // Assuming 'imageSrc' is the key in your JSON object that contains the image URL
+            imageinfo.src = imagePath + backdrop_path; // Assuming 'imageSrc' is the key in your JSON object that contains the image URL
             imageinfo.alt = "movie Icon"
-            
+
             const original_title = urlParams.get('original_title');
             document.getElementById("movieName").innerHTML = original_title;
             const release_date = urlParams.get('release_date');
@@ -48,21 +81,21 @@
 
             const overview = urlParams.get('overview');
             document.getElementById("movieDescription").innerHTML = overview;
-            console.log(backdrop_path,original_title,release_date,original_language,vote_average,overview);
+            console.log(backdrop_path, original_title, release_date, original_language, vote_average, overview);
         }
         displayModal();
 
-        function closeModal(){
-            document.getElementById('id01').style.display='none';
+        function closeModal() {
+            document.getElementById('id01').style.display = 'none';
             window.open("home.html");
         }
 
-        function bookTicketModal(){
-            document.getElementById('id01').style.display='none';
+        function bookTicketModal() {
+            document.getElementById('id01').style.display = 'none';
             const urlParams = new URLSearchParams(window.location.search);
             const original_title = urlParams.get('original_title');
             document.getElementById("movieName").innerHTML = original_title;
-            window.open('paymentDescriptionModal.html?original_title='+original_title);
+            window.open('paymentDescriptionModal.html?original_title=' + original_title);
         }
     </script>
 </body>
