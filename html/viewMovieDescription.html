@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<title>Payment Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="./../css/makepayment.css">
+
+<body>
+
+    <div class="w3-container">
+        <div id="id01" class="w3-modal">
+            <div class="w3-modal-content">
+                <header class="w3-container w3-teal">
+                    <span onclick="closeModal()"
+                        class="w3-button w3-display-topright">&times;</span>
+                </header>
+                <div class="container">
+                    <img id="movieImageID" alt="image" width="200" height="200">
+                  <h2 id="movieName"> movie details with ticket rate</h2>
+                  
+                </div>
+                <h4 id="movieRating"> Rating: </h4>
+                <p id="movieDescription"></p>
+                <p>Price: 250 Rs</p>
+                <button id="btnBookNow" onclick="bookTicketModal()"> Book Now</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function displayModal(){
+            
+            document.getElementById('id01').style.display='block';
+            const urlParams = new URLSearchParams(window.location.search);
+            const backdrop_path = urlParams.get('backdrop_path');
+
+            let imagePath = 'http://image.tmdb.org/t/p/w500/';
+            const imageinfo = document.getElementById('movieImageID');
+            imageinfo.src = imagePath +backdrop_path; // Assuming 'imageSrc' is the key in your JSON object that contains the image URL
+            imageinfo.alt = "movie Icon"
+            
+            const original_title = urlParams.get('original_title');
+            document.getElementById("movieName").innerHTML = original_title;
+            const release_date = urlParams.get('release_date');
+            const original_language = urlParams.get('original_language');
+
+            const vote_average = urlParams.get('vote_average');
+            document.getElementById("movieRating").innerHTML = vote_average;
+
+            const overview = urlParams.get('overview');
+            document.getElementById("movieDescription").innerHTML = overview;
+            console.log(backdrop_path,original_title,release_date,original_language,vote_average,overview);
+        }
+        displayModal();
+
+        function closeModal(){
+            document.getElementById('id01').style.display='none';
+            window.open("home.html");
+        }
+
+        function bookTicketModal(){
+            document.getElementById('id01').style.display='none';
+            window.open('paymentDescriptionModal.html');
+        }
+    </script>
+</body>
+
+</html>
