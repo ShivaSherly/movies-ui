@@ -24,20 +24,22 @@
                         <table>
                             <tr>
                                 <td>Class Ticket</td>
-                                <td>250$</td>
+                                <td><lable id="lblTicketPrice">
+                                    250
+                                </lable>: Rs</td>
                             </tr>
                             <tr>
                                 <td>No of Tickets</td>
-                                <td><input type="text" style="width: fit-content;" /></td>
+                                <td><input type="number" id="txtNoTickets" value='1' onchange="changeTickets()" style="width: fit-content;" /></td>
                             </tr>
                             <tr>
-                                <td>Conveniece Fee(1.75$)</td>
-                                <td>12.5$</td>
+                                <td>Conveniece</td>
+                                <td><p id="taxfee">1.75</p>&nbsp Rs</td>
 
                             </tr>
                             <tr>
                                 <td>Sub Total</td>
-                                <td>508.6$</td>
+                                <td><lable id="lblSubTotal"> </lable>&nbsp Rs</td>
                             </tr>
                         </table>
                     </div>
@@ -93,6 +95,16 @@
             document.getElementById('id01').style.display='none';
             window.open("home.html");
         }
+
+        function changeTickets(){
+            console.log("changeTickets function started");
+            let ticketsCount=document.getElementById("txtNoTickets").value;
+            let taxfee=document.getElementById("taxfee").innerText;
+            document.getElementById("taxfee").innerText=taxfee*ticketsCount;
+            let subtotal=document.getElementById("lblSubTotal").innerText;
+            document.getElementById("lblSubTotal").innerText=ticketsCount*250+taxfee*ticketsCount;
+        }
+        changeTickets();
     </script>
 </body>
 
