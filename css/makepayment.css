@@ -67,14 +67,22 @@ input[type="submit"] {
     display: flex;
 }
 
-.left-div {
+.left-div-payment {
     width: 30%;
     background-color: rgb(252, 252, 252);
+    padding-top:0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
     /* Just for illustration */
 }
 
-.right-div {
+.right-div-payment {
     width: 70%;
     background-color: rgb(250, 250, 250);
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
     /* Just for illustration */
 }
