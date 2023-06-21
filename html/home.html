@@ -5,6 +5,7 @@
     <title>My Movies App</title>
      <!-- calling external CSS function into html -->
     <link rel="stylesheet" href="./../css/home.css">
+    <link rel="icon" type="image/x-icon" href="../images/movie_icon.ico">
 </head>
 
 <body>
@@ -16,9 +17,15 @@
         // Search from Text Box
         async function searchMoviefromTextbox() {
             let movieNametoSearch = document.getElementById('textSearchMovie').value || 'harry potter';
-            let searchResult = 'Searching...';
+            if(movieNametoSearch.length>=3){
+                let searchResult = 'Searching...';
             searchResult = await searchMovie(movieNametoSearch);
             createCards(searchResult.results);
+            }
+            else{
+                window.alert("Please enter minimum 3 characters to search the movie");
+            }
+            
         }
         // Search from Left Side Navigation
         async function searchMoviebyCategory(movieCategory) {
@@ -50,23 +57,23 @@
         <div class="left-div">
             <div class="sidenav" id="sidenav">
                 <h3>Genres</h3>
-                <ul>
-                    <li><a href='#' onclick="searchMoviebyCategory('Action')">Action</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Adventure')">Adventure</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Comedy')">Comedy</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Crime')">Crime</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Documentary')">Documentary</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Drama')">Drama</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Family')">Family</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Fantasy')">Fantasy</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('History')">History</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Horror')">Horror</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Music')">Music</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Mystery')">Mystery</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Romance')">Romance</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Silence')">Silence</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('Fiction')">Fiction</a></li>
-                    <li><a href='#' onclick="searchMoviebyCategory('TV Movie')">TV Movie</a></li>
+                <ul style="list-style-type:none">
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Action')">Action</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Adventure')">Adventure</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Comedy')">Comedy</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Crime')">Crime</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Documentary')">Documentary</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Drama')">Drama</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Family')">Family</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Fantasy')">Fantasy</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('History')">History</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Horror')">Horror</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Music')">Music</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Mystery')">Mystery</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Romance')">Romance</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Silence')">Silence</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('Fiction')">Fiction</a></li>
+                    <li><a href='#' style="text-decoration:none" onclick="searchMoviebyCategory('TV Movie')">TV Movie</a></li>
                 </ul>
 
             </div>
