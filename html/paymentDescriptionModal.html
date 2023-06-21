@@ -15,6 +15,13 @@
           background-size: cover;
         }
         </style>
+        <script>
+            function onsubmitPayment(){
+                let firstName=document.getElementById('fname').value;
+                 window.alert("Dear "+firstName+" Your Payment Success: Your Ticket TK-"+Math.floor(Math.random() * 1000000)+" is booked and your seat No is: C-"+Math.floor(Math.random() * 100));
+                }
+                
+        </script>
     <div class="w3-container">
    
 
@@ -57,7 +64,7 @@
                     </div>
                     <div class="right-div" style="border:1px solid rgb(0, 0, 0);">
                         <h2>Payment</h2>
-                        <form action="payment_process.php" method="post">
+                        <form method="post">
 
                             <label for="name">First Name:</label>
                             <input type="text" id="fname" name="name" required>
@@ -69,7 +76,7 @@
                             <input type="text" id="email" name="name" required>
 
                             <label for="name">Name on Card:</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="nameoncard" name="nameoncard" required>
 
                             <label for="card-number">Card Number:</label>
                             <input type="text" id="card-number" name="card-number" required>
@@ -88,7 +95,7 @@
                                 <option value="others">OTHERS</option>
                             </select>
 
-                            <input type="submit" value="Make Payment">
+                            <input type="submit" onclick="onsubmitPayment()" value="Make Payment">
                         </form>
                     </div>
 
